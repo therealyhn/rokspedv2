@@ -46,6 +46,7 @@ const ServiceSection = ({
       {actionButton && (
         <Link 
           to={actionButton.link}
+          onClick={() => window.scrollTo(0, 0)} // Scroll to top on button click
           className="inline-block px-4 py-2 bg-primeGreen text-lightGray font-medium rounded-md 
             shadow-md mt-4 hover:bg-primeYellow transform hover:scale-105 transition-all duration-300 
             font-roboto text-center text-xs md:text-sm"
