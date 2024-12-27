@@ -1,42 +1,48 @@
-import Footer from "../components/Footer"
-import Header from "../components/Header"
 import Navbar from "../components/Navbar"
-import AboutSection from "../components/AboutSection"
-import AboutProfile from "../components/AboutProfile"
-import servicesHeaderImg from "../assets/page-header.jpg"
+import Footer from "../components/Footer"
 import { useState, useEffect } from 'react'
 import Loader from "../components/Loader"
+import PageHeader from "../components/PageHeader"
+import AboutContent from "../components/AboutContent"
+import truck1 from "../assets/truck1.jpg"
 
 function About() {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading or wait for actual content
-        window.onload = () => {
-            setLoading(false)
-        }
+        const images = [truck1];
+        let loadedImagesCount = 0;
 
-        // Fallback in case window.onload doesn't trigger
-        const timer = setTimeout(() => {
-            setLoading(false)
-        }, 2000) // Adjust timeout as needed
+        const handleImageLoad = () => {
+            loadedImagesCount++;
+            if (loadedImagesCount === images.length) {
+                setLoading(false);
+            }
+        };
 
-        return () => clearTimeout(timer)
-    }, [])
+        images.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = handleImageLoad;
+        });
+
+        return () => {
+            // No need to clean up as we are not adding event listeners
+        };
+    }, []);
 
     if (loading) {
-        return <Loader />
+        return <Loader />;
     }
     return (
         <div className="w-full">
             <Navbar />
-            <Header 
-                title="About Me" 
-                subtitle="Professional Grooming Services for the Modern Gentleman"
-                image={servicesHeaderImg}
+            <PageHeader
+                backgroundImage={truck1}
+                title="O nama"
+                subtitle="ROK ŠPED PLUS SMEDEREVO"
             />
-            <AboutSection />
-            <AboutProfile />
+            <AboutContent />
             <Footer />
         </div>
     )

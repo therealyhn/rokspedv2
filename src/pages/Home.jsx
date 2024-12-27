@@ -1,45 +1,52 @@
-import Carousel from "../components/Carousel"
-import AboutSection from "../components/AboutSection"
-import ServicesSection from "../components/ServicesSection"
-import BookForm from "../components/BookForm"
-import PriceSection from "../components/PriceSection"
-import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import { useState, useEffect } from 'react'
 import Loader from "../components/Loader"
-
+import HomeHeader from "../components/HomeHeader"
+import Footer from "../components/Footer"
 
 function Home() {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading or wait for actual content
-        window.onload = () => {
-            setLoading(false)
+        const images = document.querySelectorAll('img');
+        let loadedImagesCount = 0;
+
+        const handleImageLoad = () => {
+            loadedImagesCount++;
+            if (loadedImagesCount === images.length) {
+                setLoading(false);
+            }
+        };
+
+        images.forEach((img) => {
+            if (img.complete) {
+                handleImageLoad();
+            } else {
+                img.addEventListener('load', handleImageLoad);
+            }
+        });
+
+        if (loadedImagesCount === images.length) {
+            setLoading(false);
         }
 
-        // Fallback in case window.onload doesn't trigger
-        const timer = setTimeout(() => {
-            setLoading(false)
-        }, 2000) // Adjust timeout as needed
-
-        return () => clearTimeout(timer)
-    }, [])
+        return () => {
+            images.forEach((img) => {
+                img.removeEventListener('load', handleImageLoad);
+            });
+        };
+    }, []);
 
     if (loading) {
-        return <Loader />
+        return <Loader />;
     }
     return (
-    <div className="w-full">
-        <Navbar />
-        <Carousel />
-        <AboutSection />
-        <ServicesSection />
-        <BookForm />
-        <PriceSection />
-        <Footer />
-    </div>
+        <div className="w-full">
+            <Navbar />
+            <HomeHeader />
+            <Footer />
+        </div>
     )
-  }
-  
-  export default Home
+}
+
+export default Home

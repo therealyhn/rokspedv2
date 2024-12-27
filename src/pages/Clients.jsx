@@ -1,42 +1,58 @@
-import BookForm from "../components/BookForm"
-import ServicesSection from "../components/ServicesSection"
-import Footer from "../components/Footer"
-import Header from "../components/Header"
 import Navbar from "../components/Navbar"
-import servicesHeaderImg from "../assets/page-header.jpg"
 import { useState, useEffect } from 'react'
 import Loader from "../components/Loader"
+import PageHeader from "../components/PageHeader"
+import ClientsSection from "../components/ClientsSection"
+import Footer from "../components/Footer"
+import headerImage from "../assets/service-test.png"
 
 function Appointment() {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate loading or wait for actual content
-        window.onload = () => {
-            setLoading(false)
+        const handleImageLoad = () => {
+            setLoading(false);
+        };
+
+        const images = document.querySelectorAll('img');
+        let loadedImagesCount = 0;
+
+        images.forEach((img) => {
+            if (img.complete) {
+                loadedImagesCount++;
+            } else {
+                img.addEventListener('load', () => {
+                    loadedImagesCount++;
+                    if (loadedImagesCount === images.length) {
+                        handleImageLoad();
+                    }
+                });
+            }
+        });
+
+        if (loadedImagesCount === images.length) {
+            handleImageLoad();
         }
 
-        // Fallback in case window.onload doesn't trigger
-        const timer = setTimeout(() => {
-            setLoading(false)
-        }, 2000) // Adjust timeout as needed
-
-        return () => clearTimeout(timer)
-    }, [])
+        return () => {
+            images.forEach((img) => {
+                img.removeEventListener('load', handleImageLoad);
+            });
+        };
+    }, []);
 
     if (loading) {
-        return <Loader />
+        return <Loader />;
     }
     return (
         <div className="w-full">
             <Navbar />
-            <Header 
-                title="Make an Appointment" 
-                subtitle="Professional Grooming Services for the Modern Gentleman"
-                image={servicesHeaderImg}
+            <PageHeader
+                backgroundImage={headerImage}
+                title="Saradnici"
+                subtitle="ROK ŠPED PLUS SMEDEREVO"
             />
-            <ServicesSection />
-            <BookForm />
+            <ClientsSection />
             <Footer />
         </div>
     )
