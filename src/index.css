@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; 
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #222227;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #6BAE45; 
+    border-radius: 5px;  
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6BAE45;
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;  
+    scrollbar-color: #6BAE45 #222227;  
+  }
+
+  #loader-wrapper {
+    transition: opacity 0.5s ease-out;
+}
