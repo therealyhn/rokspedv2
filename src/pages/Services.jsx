@@ -4,6 +4,7 @@ import ServicesIntro from '../components/ServicesIntro';
 import ServiceSection from '../components/ServiceSection';
 import { useState, useEffect } from 'react';
 import Loader from '../components/Loader';
+import { Helmet } from 'react-helmet'; 
 
 import headerImage from '../assets/service-test.png';
 import carinskoIcon from '../assets/carinsko-icon.png';
@@ -47,7 +48,7 @@ const ServicesPage = () => {
         });
 
         return () => {
-            // No need to clean up as we are not adding event listeners
+
         };
     }, []);
 
@@ -56,6 +57,9 @@ const ServicesPage = () => {
     }
     return (
         <div id="services" className="w-full grid grid-cols-1">
+            <Helmet>
+                <title>Usluge - ROK ŠPED PLUS D.O.O.</title> 
+            </Helmet>
             <Navbar />
             <PageHeader
                 backgroundImage={headerImage}

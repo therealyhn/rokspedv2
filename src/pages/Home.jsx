@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Loader from "../components/Loader"
 import HomeHeader from "../components/HomeHeader"
 import Footer from "../components/Footer"
+import { Helmet } from 'react-helmet';
 
 function Home() {
     const [loading, setLoading] = useState(true);
@@ -42,6 +43,9 @@ function Home() {
     }
     return (
         <div className="w-full">
+            <Helmet>
+                <title>ROK ŠPED PLUS SMEDEREVO</title>
+            </Helmet>
             <Navbar />
             <HomeHeader />
             <Footer />

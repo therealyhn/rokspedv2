@@ -5,6 +5,7 @@ import PageHeader from "../components/PageHeader"
 import ClientsSection from "../components/ClientsSection"
 import Footer from "../components/Footer"
 import headerImage from "../assets/service-test.png"
+import { Helmet } from 'react-helmet';
 
 function Appointment() {
     const [loading, setLoading] = useState(true);
@@ -46,6 +47,9 @@ function Appointment() {
     }
     return (
         <div className="w-full">
+            <Helmet>
+                <title>Saradnici - ROK ŠPED PLUS SMEDEREVO</title>
+            </Helmet>
             <Navbar />
             <PageHeader
                 backgroundImage={headerImage}

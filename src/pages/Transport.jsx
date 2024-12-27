@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react';
 import Loader from '../components/Loader';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet';
 
 import roadIcon from '../assets/road-icon.png';
 import drumskiImage from '../assets/drumski.png';
@@ -47,7 +48,7 @@ const TransportPage = () => {
         });
 
         return () => {
-            // No need to clean up as we are not adding event listeners
+
         };
     }, []);
 
@@ -57,6 +58,9 @@ const TransportPage = () => {
     return (
         <div id="transport" className="w-full grid grid-cols-1">
             <Navbar />
+            <Helmet>
+                <title>Transport Usluge - ROK ŠPED PLUS SMEDEREVO</title>
+            </Helmet>
             <PageHeader
                 backgroundImage={serviceTest}
                 title="Transport"

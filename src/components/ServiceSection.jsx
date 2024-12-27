@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import 'animate.css';
 
 const ServiceSection = ({
   title,
@@ -11,7 +12,7 @@ const ServiceSection = ({
   actionButton
 }) => {
   const ContentSection = () => (
-    <div className="flex flex-col items-start max-w-lg px-6 md:px-8 py-6  bg-lightGray">
+    <div className="flex flex-col items-start max-w-lg px-6 md:px-8 py-6 bg-lightGray animate__animated animate__fadeIn">
       <div className={`flex items-center gap-3 md:gap-4 mb-6 w-full border-t-2 border-primeGreen pt-4`}>
         {isImageLeft ? (
           <>
@@ -56,7 +57,7 @@ const ServiceSection = ({
   );
 
   const ImageSection = () => (
-    <div className="relative hidden md:block h-full overflow-hidden group">
+    <div className="relative hidden md:block h-full overflow-hidden group animate__animated animate__fadeIn">
       <img 
         src={image} 
         alt={title} 

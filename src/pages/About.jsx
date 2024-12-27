@@ -5,6 +5,7 @@ import Loader from "../components/Loader"
 import PageHeader from "../components/PageHeader"
 import AboutContent from "../components/AboutContent"
 import truck1 from "../assets/truck1.jpg"
+import { Helmet } from 'react-helmet';
 
 function About() {
     const [loading, setLoading] = useState(true);
@@ -27,7 +28,7 @@ function About() {
         });
 
         return () => {
-            // No need to clean up as we are not adding event listeners
+
         };
     }, []);
 
@@ -36,6 +37,9 @@ function About() {
     }
     return (
         <div className="w-full">
+            <Helmet>
+                <title>O nama - ROK ŠPED PLUS SMEDEREVO</title>
+            </Helmet>
             <Navbar />
             <PageHeader
                 backgroundImage={truck1}

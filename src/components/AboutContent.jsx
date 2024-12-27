@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import certificateLogo from '../assets/certificate-logo.png';
+import 'animate.css';
 
 const AboutContent = () => {
   return (
-    <div className="w-full max-w-md mx-auto md:max-w-5xl md:pt-4 pb-8 relative px-4">
+    <div className="w-full max-w-md mx-auto md:max-w-5xl md:pt-4 pb-8 relative px-4 animate__animated animate__fadeIn">
       <div className="flex flex-col space-y-3">
-        <p className="text-sm text-darkGray border-t-2 border-primeGreen pt-2 mt-2 md:mt-0">
+        <p className="text-sm text-darkGray border-t-2 border-primeGreen pt-2 mt-2 md:mt-0 animate__animated animate__fadeInUp">
           Rok Šped Plus D.O.O. pruža pravovremene, sigurne i pouzdane usluge u
           oblasti međunarodne špedicije i transporta, poslujući na visoko stručnom nivou uz otvorenu i
           ljubaznu komunikaciju naših zaposlenih. Naš tim, sa preko 15 godina iskustva u carinskom
@@ -19,30 +20,30 @@ const AboutContent = () => {
           sigurnim rukama.
         </p>
 
-        <p className="text-lg text-primeGreen font-bold font-roboto">
+        <p className="text-lg text-primeGreen font-bold font-roboto animate__animated animate__fadeInUp">
           Naša ponuda obuhvata:
         </p>
 
         <ul className="text-sm text-darkGray list-disc list-inside marker:text-primeGreen space-y-1 pb-2">
-          <li>
+          <li className="animate__animated animate__fadeInUp">
             <span className="font-bold">Carinsko posredovanje</span> – Brz i siguran proces carinjenja sa
             kompletnom podrškom, uključujući izradu i podnošenje svih potrebnih dokumenata.
           </li>
-          <li>
+          <li className="animate__animated animate__fadeInUp">
             <span className="font-bold">Logističke usluge</span> – Sveobuhvatan proces planiranja, upravljanja
             zalihama i skladištenja, koji optimizuje vaše poslovanje.
           </li>
-          <li>
+          <li className="animate__animated animate__fadeInUp">
             <span className="font-bold">Skladištenje</span> – Moderna i prilagodljiva skladišna rešenja koja
             smanjuju troškove i povećavaju vrednost vaših proizvoda.
           </li>
-          <li>
+          <li className="animate__animated animate__fadeInUp">
             <span className="font-bold">Transport</span> – Organizacija svih vrsta transporta (drumski,
             pomorski, avio, železnički) uz fokus na brzinu, pouzdanost i optimalne troškove.
           </li>
         </ul>
 
-        <p className="text-sm text-darkGray pb-2">
+        <p className="text-sm text-darkGray pb-2 animate__animated animate__fadeInUp">
           Kao lider u industriji, težimo ka izvrsnosti i stalnom unapređenju naših usluga. Vaše poverenje je
           naš najveći uspeh. Kontaktirajte nas i prepustite sve logističke izazove timu koji je posvećen vašem
           uspehu!
@@ -51,14 +52,14 @@ const AboutContent = () => {
         <div className="flex justify-center">
           <Link 
             to="/services" 
-            className="text-sm pt-4 font-bold pb-4 text-primeGreen hover:text-primeYellow transition duration-500 border-b-2 border-primeGreen font-roboto uppercase"
+            className="text-sm pt-4 font-bold pb-4 text-primeGreen hover:text-primeYellow transition duration-500 border-b-2 border-primeGreen font-roboto uppercase animate__animated animate__fadeInUp"
           >
             Pogledajte našu ponudu
           </Link>
         </div>
 
         <div className="flex items-center justify-center gap-2 flex-col">
-          <h1 className="text-lg pb-2 pt-2 text-primeGreen font-bold uppercase font-roboto text-center md:text-left">
+          <h1 className="text-lg pb-2 pt-2 text-primeGreen font-bold uppercase font-roboto text-center md:text-left animate__animated animate__fadeInUp">
             Sertifikacija
           </h1>
           <a 
@@ -69,7 +70,7 @@ const AboutContent = () => {
             <img 
               src={certificateLogo} 
               alt="Certificate Logo" 
-              className="w-36 mx-auto md:mx-0 md:mt-4"
+              className="w-36 mx-auto md:mx-0 md:mt-4 animate__animated animate__fadeIn"
             />
           </a>
         </div>

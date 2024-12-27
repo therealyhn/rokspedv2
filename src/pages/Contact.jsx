@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import Loader from '../components/Loader';
 import Locations from '../components/Locations';
 import Map from '../components/Map';
+import { Helmet } from 'react-helmet'; 
 
 function Contact() {
     const [loading, setLoading] = useState(true);
@@ -50,6 +51,9 @@ function Contact() {
     }
     return (
         <div className="w-full bg-lightGray">
+            <Helmet>
+                <title>Kontakt i Lokacije - ROK ŠPED PLUS SMEDEREVO</title>
+            </Helmet>
             <Navbar />
             <PageHeader
                 backgroundImage={headerImg}

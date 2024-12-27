@@ -56,7 +56,7 @@ const clientWebsites = [
 
 const ClientsSection = () => {
   return (
-    <div id="clients" className="w-11/12 max-w-5xl mx-auto md:pt-5 pb-10 relative">
+    <div id="clients" className="w-11/12 max-w-5xl mx-auto md:pt-5 pb-10 relative animate__animated animate__fadeIn">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 place-items-center">
         {clientWebsites.map((website, index) => (
           <a
@@ -64,7 +64,7 @@ const ClientsSection = () => {
             href={website}
             target="_blank"
             rel="noopener noreferrer"
-            className="client-link"
+            className="client-link animate__animated animate__fadeInUp"
           >
             <img
               src={clientsImages[index]}
